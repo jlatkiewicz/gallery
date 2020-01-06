@@ -1,0 +1,4 @@
+@import '~ngx-toastr/toastr.css';
+#toast-container > div {
+  opacity: 1;
+}

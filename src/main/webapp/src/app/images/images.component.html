@@ -1,0 +1,22 @@
+<h1>Gallery</h1>
+<div class="imageInput">
+  <label> Image Link <br/>
+    <input #imageLink (keydown.enter)="add(imageLink.value); imageLink.value=''" placeholder="Image link"/>
+  </label>
+  <br/>
+  <button (click)="add(imageLink.value); imageLink.value=''" class="addButton">
+    Add
+  </button>
+</div>
+<ul class="images">
+  <li *ngFor="let image of images">
+    <div class="image">
+      <button class="delete" title="delete image"
+              (click)="delete(image)">x
+      </button>
+      <a href="{{image.imageLink}}" target="_blank"><img src="{{image.imageLink}}" alt="image" (error)="onError(image)"/></a>
+    </div>
+  </li>
+</ul>
+
+<!--<h2>Sample image address http://ulubionykolor.pl/images/normal/20012013/63b2cf015b2f9a03c6e6fb21820012013224411.jpg</h2>-->
