@@ -11,7 +11,7 @@ export class ImageService {
   private url = 'http://localhost:8080/images';
   private httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'}),
-    responseType: 'text'
+    responseType: 'text' as 'text'
   };
 
   constructor(private http: HttpClient) {
@@ -22,11 +22,11 @@ export class ImageService {
   }
 
   addImage(imageLink: string): Observable<string> {
-    return this.http.post<string>(this.url, {"imageLink": imageLink}, this.httpOptions);
+    return this.http.post(this.url, {"imageLink": imageLink}, this.httpOptions);
   }
 
   deleteImage(imageId: string): Observable<string> {
     const url = `${this.url}/${imageId}`;
-    return this.http.delete<string>(url, this.httpOptions);
+    return this.http.delete(url, this.httpOptions);
   }
 }
